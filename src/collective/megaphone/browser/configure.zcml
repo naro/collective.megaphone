@@ -21,7 +21,7 @@
         class=".megaphone.MegaphoneActionWizardView"
         permission="cmf.ModifyPortalContent"
         />
-    
+
     <!-- disable KSS inline validation for the Megaphone wizard -->
     <configure zcml:condition="installed plone.app.kss">
         <browser:page
@@ -129,18 +129,35 @@
         class=".recipients_step.RecipientSourceEditForm"
         permission="cmf.ModifyPortalContent"
         />
-    
+
     <!-- validator for template fields -->
     <adapter
         factory=".utils.MegaphoneFormTemplateVariableValidator"
         />
-    
+
     <!-- control panel -->
     <browser:page
         name="megaphone-defaults"
         for="Products.CMFCore.interfaces.ISiteRoot"
         class=".controlpanel.MegaphoneDefaultsWizardView"
         permission="collective.megaphone.ControlPanel"
+        />
+
+    <!-- Embed views -->
+    <browser:page
+        for="collective.megaphone.interfaces.IMegaphone"
+        name="embed.js"
+        class=".embed_widget.MegaphoneEmbedWidgetView"
+        attribute="embed_js"
+        permission="zope2.View"
+        />
+
+    <browser:page
+        for="collective.megaphone.interfaces.IMegaphone"
+        name="embed-megaphone"
+        class=".embed_widget.MegaphoneEmbedWidgetView"
+        template="embed_widget.pt"
+        permission="zope2.View"
         />
 
 </configure>
