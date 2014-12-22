@@ -13,9 +13,8 @@ class MegaphoneEmbedWidgetView(BrowserView):
         defaults = dict(
             uid=context.UID(),
             show_text=1,
-            use_plone_css=1,
-            width=560,
-            height=315
+            width=300,
+            height=500
         )
         for k in defaults:
             v = request.get(k)
